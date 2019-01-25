@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.northpark.mapper.KnowledgeMessageBoardMapper" >
+  <resultMap id="BaseResultMap" type="cn.northpark.model.KnowledgeMessageBoard" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="post_date" property="postDate" jdbcType="VARCHAR" />
+    <result column="message" property="message" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.northpark.model.KnowledgeMessageBoard" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into bc_knowledge_message_board (name, email, phone, 
+      post_date, message)
+    values (#{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{postDate,jdbcType=VARCHAR}, #{message,jdbcType=LONGVARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, name, email, phone, post_date, message
+    from bc_knowledge_message_board
+  </select>
+</mapper>

@@ -1,0 +1,46 @@
+server:
+  port: 8082  
+  tomcat:
+    uri-encoding: utf-8  
+
+mybatis:
+  config-location: classpath:/mybatis-config.xml
+  mapper-locations: classpath:/mapper/**/*.xml
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://35.241.93.104:3306/northpark?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: northpark
+    password: Zhangyang226@
+    
+#    默认使用HikariDataSource 效率高的一批
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    druid: 
+#      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=1000
+#      filters: stat,wall
+#      initial-size: 5
+#      max-active: 30
+#      max-pool-prepared-statement-per-connection-size: 50
+#      max-wait: 60000
+#      min-evictable-idle-time-millis: 300000
+#      min-idle: 5
+#      pool-prepared-statements: false
+#      stat-view-servlet:
+#        login-password: admin
+#        login-username: admin
+#      test-on-borrow: false
+#      test-on-return: false
+#      test-while-idle: true
+#      time-between-eviction-runs-millis: 60000
+#      use-global-data-source-stat: true
+#      validation-query: SELECT 1 FROM DUAL
+   
+    
+  mvc:
+    static-path-pattern: /static/**  
+    view:
+      prefix: classpath:/templates/  
+      suffix: .html  
+  thymeleaf:
+    cache: false  
+    enabled: true      
