@@ -9,9 +9,9 @@ mybatis:
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://35.241.93.104:3306/northpark?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: northpark
-    password: Zhangyang226@
+    url: jdbc:mysql://localhost:3306/northpark?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: fuck
+    password: fuck
     
 #    默认使用HikariDataSource 效率高的一批
 
