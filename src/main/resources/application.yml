@@ -43,11 +43,30 @@ spring:
     view:
       prefix: classpath:/templates/  
       suffix: .html  
+      
+  #thymeleaf模板配置    
   thymeleaf:
     cache: false  
-    enabled: true      
+    enabled: true   
+  #请求编码
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
     
+  #自动重启  
+  devtools:
+    restart:
+      enabled: true 
+      #排除
+      #exclude: /
+         
+  #日志打印  
 logging:
   level:
     org.springframework.web: debug
     cn.northpark.mapper: debug  
+    
+    
+    
