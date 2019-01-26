@@ -14,6 +14,8 @@ spring:
     password: Zhangyang226@
     
 #    默认使用HikariDataSource 效率高的一批
+
+#    使用druid配置
 #    type: com.alibaba.druid.pool.DruidDataSource
 #    druid: 
 #      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=1000
@@ -44,3 +46,8 @@ spring:
   thymeleaf:
     cache: false  
     enabled: true      
+    
+logging:
+  level:
+    org.springframework.web: debug
+    cn.northpark.mapper: debug  

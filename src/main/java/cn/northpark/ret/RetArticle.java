@@ -21,7 +21,7 @@ import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-import cn.northpark.NpKnowledgeApplication;
+import cn.northpark.Application;
 import cn.northpark.mapper.KnowledgeMapper;
 import cn.northpark.mapper.KnowledgeMessageBoardMapper;
 import cn.northpark.model.Knowledge;
@@ -30,7 +30,7 @@ import cn.northpark.utils.TimeUtils;
 import lombok.extern.slf4j.Slf4j;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = NpKnowledgeApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Slf4j
 public class RetArticle {
 	

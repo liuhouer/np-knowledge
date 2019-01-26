@@ -13,4 +13,8 @@ public interface KnowledgeMapper {
     int countByRetcode(String retcode);
 
 	List<Knowledge> selectByCondition(Map<String, Object> para);
+
+	Knowledge selectByPrimaryKey(Integer key);
+
+	int update(Knowledge model);
 }

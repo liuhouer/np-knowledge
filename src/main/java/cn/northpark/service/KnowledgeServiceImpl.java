@@ -33,5 +33,17 @@ public class KnowledgeServiceImpl implements KnowledgeService {
 		return kmapper.selectByCondition(para);
 	}
 
+	@Override
+	public Knowledge selectByPrimaryKey(Integer key) {
+		// TODO Auto-generated method stub
+		return kmapper.selectByPrimaryKey(key);
+	}
+
+	@Override
+	public int update(Knowledge model) {
+		// TODO Auto-generated method stub
+		return kmapper.update(model);
+	}
+
 }
 

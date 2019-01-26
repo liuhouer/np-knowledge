@@ -16,6 +16,14 @@
     <result column="content" property="content" jdbcType="LONGVARCHAR" />
     <result column="path" property="path" jdbcType="LONGVARCHAR" />
   </resultMap>
+  
+  
+  <update id="update" parameterType="cn.northpark.model.Knowledge" >
+    update bc_knowledge
+    set view_times = #{viewTimes,jdbcType=BIGINT} 
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
   <insert id="insert" parameterType="cn.northpark.model.Knowledge" >
     <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
@@ -43,7 +51,7 @@
     where ret_code = #{ret_code,jdbcType=VARCHAR}
   </select>
   
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select id, ret_code, title, brief_img, brief, post_date, tags, tags_code, returl, 
     link_url, view_times, content, path
     from bc_knowledge

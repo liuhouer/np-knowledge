@@ -13,7 +13,7 @@ import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 
 @SpringBootApplication
 @MapperScan("cn.northpark.mapper")
-public class NpKnowledgeApplication {
+public class Application {
 
 	/**
      * 使用 fastJson
@@ -33,7 +33,7 @@ public class NpKnowledgeApplication {
     }
     
     public static void main(String[] args) {
-		SpringApplication.run(NpKnowledgeApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }

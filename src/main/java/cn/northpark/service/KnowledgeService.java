@@ -12,5 +12,9 @@ public interface KnowledgeService {
     List<Knowledge> selectAll();
 
     List<Knowledge> selectByCondition(Map<String,Object> para);
+
+	Knowledge selectByPrimaryKey(Integer valueOf);
+
+	int update(Knowledge model);
     
 }

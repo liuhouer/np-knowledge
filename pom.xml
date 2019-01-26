@@ -89,11 +89,13 @@
 		</dependency>
 
 		<!-- druid数据库连接池 -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
 			<version>1.0.26</version>
-		</dependency>
+		</dependency> -->
+		
+		
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>

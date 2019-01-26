@@ -1,0 +1,33 @@
+<!-- Navigation -->
+ <!-- 这里的th:fragment 意思是给这块内容标记为navbar -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" th:fragment="navbar">
+      <div class="container">
+        <a class="navbar-brand" href="/">NorthPark知识共享</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/"  title="首页">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/bookindex.html" title="书籍索引">it book index</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/moocindex.html" title="课程索引">mooc index</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/search.html" title="搜索一下">Search</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html" title="关于">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact.html" title="取得联系">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+</nav>
