@@ -45,5 +45,11 @@ public class KnowledgeServiceImpl implements KnowledgeService {
 		return kmapper.update(model);
 	}
 
+	@Override
+	public List<Knowledge> selectIndexByTag(Map<String, Object> para) {
+		// TODO Auto-generated method stub
+		return kmapper.selectIndexByTag(para);
+	}
+
 }
 

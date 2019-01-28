@@ -16,5 +16,7 @@ public interface KnowledgeService {
 	Knowledge selectByPrimaryKey(Integer valueOf);
 
 	int update(Knowledge model);
+
+	List<Knowledge> selectIndexByTag(Map<String, Object> para);
     
 }

@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>[[${post.title}]]  - NorthPark Share Blog </title>
+    <title>[[${h1}]] - NorthPark Share Blog</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -32,17 +32,17 @@
     <div th:replace="common/search :: popup"></div>
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('/static/img/post-bg.jpg')">
+    <header class="masthead" style="background-image: url('/static/img/classindex-bg.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="post-heading">
-              <h1>[[${post.title}]]</h1>
-              <h2 class="subheading">[[${post.brief}]]</h2>
+              <h1>[[${h1}]]</h1>
+              <h2 class="subheading">[[${h2}]]</h2>
               <span class="meta">Posted by
-               <a href="https://northpark.cn">northpark</a> ·
-                on [[${post.postDate}]] </span>
+                <a href="https://northpark.cn">northpark</a>
+              </span>
               
               </p>  
             </div>
@@ -55,12 +55,12 @@
     <article>
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto" id="J_content" th:utext=" ${post.content}">
-           
+          <div class="col-lg-8 col-md-10 mx-auto" id="J_content">
+	          <p th:each="k,stat:${list}" style="font-size: 14px;">
+	           	文章ID：[[${k.id}]] 详情点击：<a th:href="'/archives/' + ${k.id} ">[[${k.title}]]</a>
+	          </p>
           </div>
-          <div class="col-lg-8 col-md-10 mx-auto"  th:utext=" ${post.path}">
-           
-          </div>
+                         
         </div>
       </div>
     </article>

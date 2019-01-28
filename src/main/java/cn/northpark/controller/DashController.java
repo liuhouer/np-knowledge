@@ -2,12 +2,13 @@ package cn.northpark.controller;
 
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,8 +32,14 @@ public class DashController {
 	@Autowired
 	private KnowledgeService kService;
 	
+	@Autowired
+	private RedisTemplate redisTemplate;
+
 	private final static int PER_PAGE_SIZE = 8;
 	
+	private final static String REDIS_BOOK_INDEX = "book-index";
+	
+	private final static String REDIS_MOOC_INDEX = "mooc-index";
 	
 	/**
 	 * @return
@@ -144,7 +151,7 @@ public class DashController {
 	/**
 	 * @return
 	 */
-	@RequestMapping(value="/archives/{id}.html")
+	@RequestMapping(value="/archives/{id}")
 	public String postPage(ModelMap map,@PathVariable String id) {
 		
 
@@ -167,6 +174,64 @@ public class DashController {
 		map.put("post", model);
 		
 		return "post";
+	}
+	
+	
+
+	/**
+	 * @return
+	 */
+	@RequestMapping(value="/mooc/index")
+	public String moocindex(ModelMap map) {
+		List<Knowledge> list =null;
+		
+		//从缓存取
+		String mooclist = (String) redisTemplate.opsForValue().get(REDIS_MOOC_INDEX);
+		if(Strings.isNullOrEmpty(mooclist)) {
+			//从数据库取
+			Map<String, Object> para = Maps.newHashMap();
+			para.put("tags_code", "classhare");
+			list = kService.selectIndexByTag(para );
+
+		    //放到缓存
+			redisTemplate.opsForValue().set(REDIS_MOOC_INDEX, JSON.toJSONString(list) ,30 ,TimeUnit.DAYS);
+		}else {
+			//反序列化
+			list = JSON.parseArray(mooclist, Knowledge.class);
+		}
+		map.put("list", list);
+		map.put("h1", "MOOC LIST");
+		map.put("h2", "课程索引");
+		return "classindex";
+	}
+	
+	/**
+	 * @return
+	 */
+	@RequestMapping(value="/book/index")
+	public String bookindex(ModelMap map) {
+		
+		List<Knowledge> list = null;
+		
+		//从缓存取
+		
+		String booklist = (String) redisTemplate.opsForValue().get(REDIS_BOOK_INDEX);
+		if(Strings.isNullOrEmpty(booklist)) {
+			//从数据库取
+			Map<String, Object> para = Maps.newHashMap();
+			para.put("tags_code", "bookshare");
+		    list = kService.selectIndexByTag(para );
+
+			//放到缓存
+			redisTemplate.opsForValue().set(REDIS_BOOK_INDEX, JSON.toJSONString(list) ,30 ,TimeUnit.DAYS);
+		}else {
+			//反序列化
+			list = JSON.parseArray(booklist, Knowledge.class);
+		}
+		map.put("list", list);
+		map.put("h1", "IT Books List");
+		map.put("h2", "书籍索引");
+		return "classindex";
 	}
 	
 	/**

@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Clean Blog - Start Bootstrap Theme</title>
+    <title>Contact - NorthPark Share Blog</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,7 +26,10 @@
   <body>
 
     <!-- Navigation -->
-    <div th:replace="navigation :: navbar"></div>
+    <div th:replace="common/navigation :: navbar"></div>
+    
+    <!-- popup -->
+    <div th:replace="common/search :: popup"></div>
     
     <!-- Page Header -->
     <header class="masthead" style="background-image: url('/static/img/contact-bg.jpg')">
@@ -93,7 +96,7 @@
     <hr>
 
     <!-- Footer -->
-    <div th:replace="footer :: footer"></div>
+    <div th:replace="common/footer :: footer"></div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="/static/vendor/jquery/jquery.min.js"></script>

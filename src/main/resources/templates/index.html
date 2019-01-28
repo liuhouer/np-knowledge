@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>NorthPark - Share Knowledge</title>
+    <title>NorthPark Share Blog</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,7 +26,10 @@
   <body>
 
     <!-- Navigation -->
-    <div th:replace="navigation :: navbar"></div>
+    <div th:replace="common/navigation :: navbar"></div>
+    
+    <!-- popup -->
+    <div th:replace="common/search :: popup"></div>
 
     <!-- Page Header -->
     <header class="masthead" style="background-image: url('/static/img/home-bg.jpg')">
@@ -49,12 +52,12 @@
         <div class="col-lg-8 col-md-10 mx-auto" id="J_content">
         
 		  <div th:each="k,stat:${list}" class="post-preview">
-            <a th:href="'/archives/' + ${k.id} +'.html'" >
+            <a th:href="'/archives/' + ${k.id} " >
               <h2 class="post-title">
                [[${k.title}]]
               </h2>
             </a>
-              <a th:href="'/archives/' + ${k.id} +'.html'" > 	<img alt="" th:src="@{${k.briefImg}}" /></a>
+              <a th:href="'/archives/' + ${k.id} " > 	<img alt="" th:src="@{${k.briefImg}}" /></a>
               <p class="post-subtitle">
                   [[${k.brief}]]
               </p>
@@ -83,7 +86,7 @@
     <hr>
 
     <!-- Footer -->
-    <div th:replace="footer :: footer"></div>
+    <div th:replace="common/footer :: footer"></div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="/static/vendor/jquery/jquery.min.js"></script>

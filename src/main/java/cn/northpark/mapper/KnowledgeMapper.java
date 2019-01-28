@@ -17,4 +17,6 @@ public interface KnowledgeMapper {
 	Knowledge selectByPrimaryKey(Integer key);
 
 	int update(Knowledge model);
+
+	List<Knowledge> selectIndexByTag(Map<String, Object> para);
 }

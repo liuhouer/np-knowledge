@@ -78,5 +78,23 @@
     order by post_date desc       
   </select>
   
+  <select id="selectIndexByTag" resultMap="BaseResultMap" parameterType="hashmap">
+    select id,  title, post_date
+    from bc_knowledge
+    
+    <trim prefix="WHERE" prefixOverrides="AND|OR">
+    
+	    
+	    <if test="tags_code != null and tags_code !=''">
+			 and   tags_code  = #{tags_code}
+	    </if>
+    
+  	</trim>
+            
+    order by post_date desc       
+  </select>
+  
+  
+  
   
 </mapper>
