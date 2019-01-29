@@ -57,14 +57,16 @@
                [[${k.title}]]
               </h2>
             </a>
-              <a th:href="'/archives/' + ${k.id} " > 	<img alt="" th:src="@{${k.briefImg}}" /></a>
+              <!-- <a th:href="'/archives/' + ${k.id} " > 	<img alt="" th:src="@{${k.briefImg}}" /></a> -->
               <p class="post-subtitle">
                   [[${k.brief}]]
               </p>
             <p class="post-meta">Posted by
               <a href="https://northpark.cn">northpark</a> ·
-              <a th:href="'/category/' + ${k.tagsCode}">[[${k.tags}]] </a>
-              on   [[${k.postDate}]] ·[[${k.viewTimes}]]次浏览
+              <i class="fa fa-tag paddingl10 paddingr1" aria-hidden="true" ></i><a th:href="'/category/' + ${k.tagsCode}">    [[${k.tags}]]    </a>
+              <i class="fa fa-calendar paddingl10 paddingr1" aria-hidden="true"></i>   [[${k.postDate}]]    
+              
+              <i class="fa fa-eye paddingl10 paddingr1" aria-hidden="true"></i>   [[${k.viewTimes}]]次浏览   
               
               </p>
               
@@ -95,6 +97,8 @@
     <!-- Custom scripts for this template -->
     <script src="/static/js/clean-blog.min.js"></script>
     
+    
+    
      <script type="text/javascript">
     //禁止图片拉伸
     $(function () {
@@ -103,6 +107,15 @@
             $(this).css('max-height', 360);
             $(this).css('margin-right', '20%');
         })
+        
+        $("#gobutton").click(function(){
+        	var word = $("#serendipityQuickSearchTermField").val();
+        	if(word){
+        		window.location.href = "/search/"+word;
+        	}else{
+        		$("#serendipityQuickSearchTermField").attr("placeholder","未输入任何搜索内容");
+        	}
+        });
     })
 
 	</script>

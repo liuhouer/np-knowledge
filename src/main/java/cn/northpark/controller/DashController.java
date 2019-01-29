@@ -33,7 +33,7 @@ public class DashController {
 	private KnowledgeService kService;
 	
 	@Autowired
-	private RedisTemplate redisTemplate;
+	private RedisTemplate<String, Object> redisTemplate;
 
 	private final static int PER_PAGE_SIZE = 8;
 	
@@ -232,6 +232,38 @@ public class DashController {
 		map.put("h1", "IT Books List");
 		map.put("h2", "书籍索引");
 		return "classindex";
+	}
+	
+	
+	/**
+	 * @return
+	 */
+	@RequestMapping(value="/search/{word}")
+	public String search(ModelMap map,@PathVariable String word) {
+		//校验
+		Preconditions.checkNotNull(word);
+		Preconditions.checkArgument(
+				  !(word.contains("insert")
+				||word.contains("update")
+				||word.contains("delete")
+				||word.contains("drop" )
+				||word.contains("create")
+				||word.contains("rename")
+				||word.contains("truncate")
+				||word.contains("alter")
+				||word.contains("exists")
+				||word.contains("master")
+				||word.contains("restore")
+				||word.contains("where")),
+				
+				"臭傻逼你想干什么？");
+
+		Map<String, Object> para = Maps.newHashMap();
+		para.put("word", word);
+		List<Knowledge> list = kService.selectByCondition(para );
+
+		map.put("list", list);
+		return "index";
 	}
 	
 	/**

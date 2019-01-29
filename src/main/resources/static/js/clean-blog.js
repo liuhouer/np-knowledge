@@ -39,3 +39,22 @@
   }
 
 })(jQuery); // End of use strict
+
+
+//禁止图片拉伸
+$(function () {
+	$(".container").find("img").each(function () {
+        $(this).css('max-width', ($("#J_content").width()));
+        $(this).css('max-height', 360);
+        $(this).css('margin-right', '20%');
+    })
+    
+    $("#gobutton").click(function(){
+    	var word = $("#serendipityQuickSearchTermField").val();
+    	if(word){
+    		window.location.href = "/search/"+word;
+    	}else{
+    		$("#serendipityQuickSearchTermField").attr("placeholder","未输入任何搜索内容");
+    	}
+    });
+})

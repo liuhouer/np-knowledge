@@ -6,20 +6,20 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
-                    <form id="searchform" action="/demo/cleanblog/index.php" method="get">
                         <div>
                             <input type="hidden" name="serendipity[action]" value="search">
                             <label for="serendipityQuickSearchTermField" class="sr-only">Quicksearch</label>
-                            <input id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" style="width: 100%;" type="search" value="" placeholder="Search ...">
+                            <input id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" style="width: 100%;"  class="form-control" type="search" value=""  required=""  placeholder="Search ...">
                                      
                         </div>
+                        
                         <div class="modal-footer">
                             <input class="btn btn-primary" id="gobutton" name="serendipity[searchButton]" type="submit" value="Go!">   
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
-                    </form>
-                    
                 </div>
             </div>
         </div>
     </div>
+
+	
