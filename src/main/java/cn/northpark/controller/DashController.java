@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
@@ -22,7 +23,11 @@ import com.google.common.base.Strings;
 import com.google.common.collect.Maps;
 
 import cn.northpark.model.Knowledge;
+import cn.northpark.model.KnowledgeMessageBoard;
+import cn.northpark.result.Result;
+import cn.northpark.result.ResultGenerator;
 import cn.northpark.service.KnowledgeService;
+import cn.northpark.utils.TimeUtils;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
@@ -284,5 +289,27 @@ public class DashController {
 		
 		return "about";
 	}
+	/**
+	 * @return
+	 */
+	@RequestMapping(value="/mail/contactMe")
+	@ResponseBody
+	public Result<String> contactMe(HttpServletRequest request) {
+		String name    = request.getParameter("name");
+		String phone   = request.getParameter("phone");
+		String email   = request.getParameter("email");
+		String message = request.getParameter("message");
+		KnowledgeMessageBoard km = new KnowledgeMessageBoard();
+		km.setEmail(email);
+		km.setMessage(message);
+		km.setName(name);
+		km.setPhone(phone);
+		km.setPostDate(TimeUtils.nowdate());
+		kService.addKnowledgeMessageBoard(km);
+		return ResultGenerator.genSuccessResult("ok");
+	}
+	
+	
+	
 	
 }

@@ -7,13 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.northpark.mapper.KnowledgeMapper;
+import cn.northpark.mapper.KnowledgeMessageBoardMapper;
 import cn.northpark.model.Knowledge;
+import cn.northpark.model.KnowledgeMessageBoard;
 
 @Service
 public class KnowledgeServiceImpl implements KnowledgeService {
 
 	@Autowired
 	private KnowledgeMapper kmapper;
+	
+	@Autowired
+	private KnowledgeMessageBoardMapper kmbmapper;
 	
 	@Override
 	public int insert(Knowledge record) {
@@ -49,6 +54,12 @@ public class KnowledgeServiceImpl implements KnowledgeService {
 	public List<Knowledge> selectIndexByTag(Map<String, Object> para) {
 		// TODO Auto-generated method stub
 		return kmapper.selectIndexByTag(para);
+	}
+
+	@Override
+	public int addKnowledgeMessageBoard(KnowledgeMessageBoard km) {
+		// TODO Auto-generated method stub
+		return kmbmapper.insert(km);
 	}
 
 }

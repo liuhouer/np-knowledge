@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import cn.northpark.model.Knowledge;
+import cn.northpark.model.KnowledgeMessageBoard;
 
 public interface KnowledgeService {
 	
@@ -18,5 +19,7 @@ public interface KnowledgeService {
 	int update(Knowledge model);
 
 	List<Knowledge> selectIndexByTag(Map<String, Object> para);
+
+	int addKnowledgeMessageBoard(KnowledgeMessageBoard km);
     
 }
