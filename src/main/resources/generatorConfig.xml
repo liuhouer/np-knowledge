@@ -14,7 +14,7 @@
         
         <!-- 配置数据库 -->  
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" 
-				        connectionURL="jdbc:mysql://35.241.93.104:3306/northpark" 
+				        connectionURL="jdbc:mysql://213.59.119.120:3306/northpark" 
 				        userId="northpark" 
 				        password="Zhangyang226@">  
         </jdbcConnection> 
