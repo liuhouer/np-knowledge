@@ -8,14 +8,19 @@ import org.springframework.stereotype.Service;
 
 import cn.northpark.mapper.KnowledgeMapper;
 import cn.northpark.mapper.KnowledgeMessageBoardMapper;
+import cn.northpark.mapper.KnowledgeTestMapper;
 import cn.northpark.model.Knowledge;
 import cn.northpark.model.KnowledgeMessageBoard;
+import cn.northpark.model.KnowledgeTest;
 
 @Service
 public class KnowledgeServiceImpl implements KnowledgeService {
 
 	@Autowired
 	private KnowledgeMapper kmapper;
+	
+	@Autowired
+	private KnowledgeTestMapper ktapper;
 	
 	@Autowired
 	private KnowledgeMessageBoardMapper kmbmapper;
@@ -60,6 +65,12 @@ public class KnowledgeServiceImpl implements KnowledgeService {
 	public int addKnowledgeMessageBoard(KnowledgeMessageBoard km) {
 		// TODO Auto-generated method stub
 		return kmbmapper.insert(km);
+	}
+
+	@Override
+	public int AddKnowledgeTest(KnowledgeTest record) {
+		// TODO Auto-generated method stub
+		return ktapper.insert(record);
 	}
 
 }

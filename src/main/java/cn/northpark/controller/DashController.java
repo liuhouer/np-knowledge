@@ -1,5 +1,6 @@
 package cn.northpark.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -24,6 +25,7 @@ import com.google.common.collect.Maps;
 
 import cn.northpark.model.Knowledge;
 import cn.northpark.model.KnowledgeMessageBoard;
+import cn.northpark.model.KnowledgeTest;
 import cn.northpark.result.Result;
 import cn.northpark.result.ResultGenerator;
 import cn.northpark.service.KnowledgeService;
@@ -309,7 +311,18 @@ public class DashController {
 		return ResultGenerator.genSuccessResult("ok");
 	}
 	
-	
+	/**
+	 * @return
+	 */
+	@RequestMapping(value="/testTime")
+	@ResponseBody
+	public Result<String> testTime() {
+		KnowledgeTest test = new KnowledgeTest();
+		test.setAddtime1(new Date());
+		test.setAddtime2(new Date());
+		test.setAddtime3(new Date());
+		return ResultGenerator.genSuccessResult(kService.AddKnowledgeTest(test)+"---->OK");
+	}
 	
 	
 }

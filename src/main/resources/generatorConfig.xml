@@ -14,7 +14,7 @@
         
         <!-- 配置数据库 -->  
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" 
-				        connectionURL="jdbc:mysql://213.59.119.39:3306/northpark" 
+				        connectionURL="jdbc:mysql://213.59.119.39:3306/northpark?serverTimezone=UTC&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;" 
 				        userId="northpark" 
 				        password="Zhangyang226@">  
         </jdbcConnection> 
@@ -59,6 +59,16 @@
             enableUpdateByExample="true" enableCountByExample="true" 
              >
              <!-- <property name="modelOnly" value="true"/> -->
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+		
+		
+		<table 
+             tableName="bc_knowledge_test" 
+             domainObjectName="KnowledgeTest" 
+             enableUpdateByExample="true" enableCountByExample="true" 
+             >
+           <!--  <property name="modelOnly" value="true"/> -->
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>
         

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import cn.northpark.model.Knowledge;
 import cn.northpark.model.KnowledgeMessageBoard;
+import cn.northpark.model.KnowledgeTest;
 
 public interface KnowledgeService {
 	
@@ -21,5 +22,8 @@ public interface KnowledgeService {
 	List<Knowledge> selectIndexByTag(Map<String, Object> para);
 
 	int addKnowledgeMessageBoard(KnowledgeMessageBoard km);
+	
+    int AddKnowledgeTest(KnowledgeTest record);
+
     
 }

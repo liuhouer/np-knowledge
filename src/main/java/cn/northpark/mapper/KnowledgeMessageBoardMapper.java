@@ -1,7 +1,8 @@
 package cn.northpark.mapper;
 
-import cn.northpark.model.KnowledgeMessageBoard;
 import java.util.List;
+
+import cn.northpark.model.KnowledgeMessageBoard;
 
 public interface KnowledgeMessageBoardMapper {
     int insert(KnowledgeMessageBoard record);

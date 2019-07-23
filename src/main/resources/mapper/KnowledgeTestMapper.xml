@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.northpark.mapper.KnowledgeTestMapper" >
+  <resultMap id="BaseResultMap" type="cn.northpark.model.KnowledgeTest" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="addtime1" property="addtime1" jdbcType="TIMESTAMP" />
+    <result column="addtime2" property="addtime2" jdbcType="DATE" />
+    <result column="addtime3" property="addtime3" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.northpark.model.KnowledgeTest" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into bc_knowledge_test (addtime1, addtime2, addtime3
+      )
+    values (#{addtime1,jdbcType=TIMESTAMP}, #{addtime2,jdbcType=DATE}, #{addtime3,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, addtime1, addtime2, addtime3
+    from bc_knowledge_test
+  </select>
+</mapper>
