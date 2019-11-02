@@ -65,10 +65,10 @@ spring:
       
   #redis配置    
   redis:
-   host: 213.59.119.39
+   host: localhost
    port: 6379
    # 密码 没有则可以不填
-   password: Cpdwvs678900
+   password: caonima
    # 如果使用的jedis 则将lettuce改成jedis即可
    lettuce:
      pool:
